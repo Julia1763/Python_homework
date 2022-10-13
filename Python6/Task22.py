@@ -8,22 +8,29 @@
 #1+2*3 => 7;
 #(1+2)*3 => 9;
 import select
+import re
 n=input('Введите выражение: ')
 
-for f in n:
-    if f=='+' or f=='-' or f=='*' or f=='/':
-        n1=n.find(f)
-        s1=n[:n1]
-        s2=n[n1+1:]
-        break
+res = sum(map(int, re.findall(r'[+-]?\d+', n)))# Подходит только для операций + или -
 
-for z in s2:
-    if z=='+' or z=='-' or z=='*' or z=='/':
-        m1=s2.find(z)
-        s3=s2[:m1]
-        s4=s2[m1+1]
-        break
+print(res)
 
-res1=select(int,s1)
-res2=select(int,s3)
-res4=select(int,s4)
+res=eval(n)
+print(res)
+#for f in n:
+ #   if f=='+' or f=='-' or f=='*' or f=='/':
+  #      n1=n.find(f)
+   #     s1=n[:n1]
+    #    s2=n[n1+1:]
+     #   break
+
+#for z in s2:
+ #   if z=='+' or z=='-' or z=='*' or z=='/':
+  #      m1=s2.find(z)
+    #    s4=s2[m1+1]
+   #     s3=s2[:m1]
+     #   break
+
+#res1=select(int,s1)
+#res2=select(int,s3)
+#res4=select(int,s4)
